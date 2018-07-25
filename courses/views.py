@@ -1,5 +1,6 @@
 import copy
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
@@ -13,12 +14,22 @@ class CourseListView(generic.ListView):
     model = models.Course
 
 
-class CourseDetailView(generic.DetailView):
+class ResourceListView(generic.ListView):
+    model = models.Resource
+
+    def get_queryset(self):
+        lesson = models.Lesson.objects.get(id=self.kwargs['pk'])
+        return models.Resource.objects.filter(lesson=lesson)
+
+
+class CourseDetailView(LoginRequiredMixin, generic.DetailView):
     model = models.Course
+    login_url = "login"
 
 
-class CourseQuizView(generic.FormView):
+class CourseQuizView(LoginRequiredMixin, generic.FormView):
     template_name = 'courses/course_quiz.html'
+    login_url = "login"
     form_class = forms.QuizModelForm
     quiz = None
 

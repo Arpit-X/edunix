@@ -35,7 +35,7 @@ class Course(models.Model):
     display_order = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.code
+        return self.name
 
     def get_absolute_url(self):
         return reverse_lazy('courses:detail', args=[self.pk])
@@ -48,7 +48,7 @@ class Lesson(models.Model):
 
 
 class Resource(models.Model):
-
+    title = models.CharField(max_length=20)
     RESOURCE_TYPES = (
         (constants.PDF, 'PDF'),
         (constants.IMAGES, 'IMAGE'),

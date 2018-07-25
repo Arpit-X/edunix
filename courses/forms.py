@@ -26,11 +26,11 @@ class QuizModelForm(forms.ModelForm):
 
                 if question.type == constants.FILL_IN_THE_BLANKS:
                     self.fields[field_name] = forms.CharField(
-                        label=question.title)
+                        label=question.description)
 
                 elif question.type == constants.MULTIPLE_CHOICE:
                     self.fields[field_name] = forms.ChoiceField(
-                        label=question.title,
+                        label=question.description,
                         widget=forms.RadioSelect
                     )
 
