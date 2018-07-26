@@ -3,11 +3,17 @@
 {% block content %}
     <a id="quiz-btn" class="btn pull-right" href="{% url 'courses:quiz' object.pk %}">Take Quiz</a>
     <div id="lessons-container">
+    {% if object.lessons.all %}
         <h1>Lessons</h1>
+
         <ul>
             {% for lesson in object.lessons.all %}
                <a href="{%   url "courses:resource_list" lesson.id %}"> <li class="lessons">{{ lesson.name }}</li></a>
             {% endfor %}
         </ul>
+    {% else %}
+        <h1>Oops! No lessons available</h1>
+    {% endif %}
     </div>
+
 {% endblock %}
