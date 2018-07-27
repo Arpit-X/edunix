@@ -83,8 +83,16 @@ a{
 }
 #quiz-btn{
     padding: 10px 20px;
-    background-color:#e8bb32;
-    color: whitesmoke
+    background-color:#ffc631;
+    color: #222222b5;
+    font-weight:bold;
+    transition: all 0.25s;
+    transition-timing-function:ease;
+}
+#quiz-btn:hover{
+    background-color:darkorange;
+    color:white;
+    transform:scale(1.1);
 }
 #quiz{
     margin-top:5%;
@@ -125,4 +133,72 @@ input[type="submit"]{
 #timer{
     margin:0px;
     font-size:30px
+}
+#lesson-menu{
+    width:250px;
+    float:left;
+    margin-left:-60px;
+
+}
+#resource-display{
+    margin-left:200px;
+    border:2px solid white;
+    color:white;
+    font-family: "Dancing Script", cursive;
+    height:450px;
+    width:850px;
+    padding:px;
+    background-color:rgba(200,200,100,0.7);
+}
+embed{
+    width:100%;
+    height:100%;
+
+}
+embed:focus{
+    outlin:none;
+}
+.resource-btn{
+    width:100%;
+    text-align:left;
+    outline:none;
+    border:none;
+}
+#resource-display h1{
+    margin:100px;
+}
+#course-name{
+    font-family:"Dancing script";
+    color:white;
+    text-align:center;
+}
+footer{
+    position:fixed;
+    background-color:#111;
+    width:100%;
+    padding:5px;
+    color:#999;
+    text-align:center;
+    bottom:0px;
+}
+footer p {
+    margin:0px;
+}
+@media only screen and (max-width:1000px){
+    #lesson-menu{
+        width:100%;
+        display:block;
+        margin:0px;
+        float:none;
+    }
+    #resource-display{
+        width:100%;
+        margin:0px;
+        height:300px;
+    }
+    #resource-display h1{
+        margin:5px;
+        text-align:center;
+    }
+
 }

@@ -14,13 +14,6 @@ class CourseListView(generic.ListView):
     model = models.Course
 
 
-class ResourceListView(generic.ListView):
-    model = models.Resource
-
-    def get_queryset(self):
-        lesson = models.Lesson.objects.get(id=self.kwargs['pk'])
-        return models.Resource.objects.filter(lesson=lesson)
-
 
 class CourseDetailView(LoginRequiredMixin, generic.DetailView):
     model = models.Course
